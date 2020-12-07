@@ -1,29 +1,49 @@
 import React, { useEffect,useState }from 'react';
-import firebase from 'firebase';
-import NavBar from './navBar';
+import VerifyForm from '../verify/verifyForm';
+import MenuButton from './menuButton'
 
-const signOut = () =>{
-  firebase.auth().signOut().then(function() {
-    console.log('Successfully Signed out')
-  }).catch(function(){
-    console.log('error Signed out')
-  })
-}
+
 
 const Main = (props) =>{
+  var[orderObject,setOrderObject] = useState(true);
+  
+//  useEffect(()=>{
+ 
+//   var object=null
+//     firebase.database().ref('users/').orderByChild('userid').equalTo(props.user.uid)
+//                        .on('value',(snapshot)=>{
+//                 snapshot.forEach((childSnapshot) => {
+//        object = childSnapshot.val()
+//      //  console.log(childSnapshot.val())
+//      });
+//      object= snapshot.val();
+//    })
+//    console.log(object)
+//    if (object === null) {
+//      setOrderObject(
+//        true
+//      )
+   
+//    }
+//  },[])
 
-  return(
+
+ if(orderObject){
+    return(
     <>
-    <div className="App">
-    <NavBar />
-      <div className="App-header">
-        
-        {props.user.displayName}
-        <button onClick={signOut}>Sign Out</button>
-      </div>  
-    </div>
+      <div className="App">
+       
+      <div> Welcome , {props.user.displayName}</div>
+       <div><MenuButton /></div>
+       <div>.</div>
+
+      </div>
     </>
-  )
+    )
+  }
+  else{
+    return <VerifyForm />
+  }
 }
 
 export default Main

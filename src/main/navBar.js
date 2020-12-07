@@ -4,15 +4,16 @@ import { AppBar, Toolbar, IconButton, Typography ,Fab ,Button,Menu ,MenuItem } f
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { SwipeableDrawer } from '@material-ui/core';
+import { Drawer } from '@material-ui/core';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
-
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import {Link} from 'react-router-dom';
+import firebase from 'firebase';
 
 const useStyles = makeStyles({
   list: {
@@ -23,6 +24,13 @@ const useStyles = makeStyles({
   },
 });
 
+const signOut = () =>{
+  firebase.auth().signOut().then(function() {
+    console.log('Successfully Signed out')
+  }).catch(function(){
+    console.log('error Signed out')
+  })
+}
 
 const AppBarMenu = (props) =>{
   const classes = useStyles();
@@ -33,6 +41,8 @@ const AppBarMenu = (props) =>{
     bottom: false,
     right: false,
   });
+  
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -51,24 +61,25 @@ const AppBarMenu = (props) =>{
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {['Home', 'Test', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            {text}
-          </ListItem>
-        ))}
-      </List>
+
       <Divider />
-      <List>
-       
-      </List>
+        <List>
+        <ListItem button>
+              <ListItemIcon><HomeIcon /> </ListItemIcon>
+              <Link to="/">Home</Link>
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon><ExitToAppIcon /> </ListItemIcon>
+          <Link onClick={signOut}>Log Out</Link>
+        </ListItem>
+        </List>
+      <Divider />
     </div>
   );
 
   return(
   <>
-    <AppBar position="static">
+  <AppBar position="static">
     <Toolbar>
       <IconButton edge="start"  color="inherit" aria-label="menu" aria-haspopup="true" onClick={toggleDrawer('left', true)}>
         <MenuIcon />
@@ -77,24 +88,19 @@ const AppBarMenu = (props) =>{
         ORMOS
       </Typography>
     </Toolbar>
-    </AppBar>
+  </AppBar>
 
 
       {/* ///THIS IS WHERE THEY APPEAR */}
-
-
-
-      <div>
-   
-      {['left'].map((anchor) => (
-        <React.Fragment key={'left'}>
-          {/* <Button onClick={toggleDrawer('left', true)}>{'left'}</Button> */}
-          <SwipeableDrawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
-            {list('left')}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
-    </div>  
+  <div>
+    {['left'].map((anchor) => (
+      <React.Fragment key={'left'}>
+        <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
+          {list('left')}
+        </Drawer>
+      </React.Fragment>
+    ))}
+  </div>  
   </>
 
   
