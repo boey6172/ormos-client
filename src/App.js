@@ -34,6 +34,7 @@ var uiConfig = {
   }
 };
 const App = () => {
+  
   const [user,setuser]= useState(null);
  
   useEffect(() => {
@@ -42,8 +43,6 @@ const App = () => {
     })
     return authObserver;
   })
-
-
 
 if(user){
     return (

@@ -1,47 +1,88 @@
-import React, {useState,useRef} from 'react';
-import { MapContainer,TileLayer,Popup,Marker,useMapEvent,useMap,Rectangle} from "react-leaflet";
-import { Button,ButtonGroup,IconButton,Divider,Paper,InputBase,Container } from '@material-ui/core';
-import L from "leaflet";
+import React, { useState, forwardRef,createRef } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L, { map } from "leaflet";
+
 import '../leaflet/leaflet.css';
 
-const PtopMap =()=> {
-  const [center, setCenter] = useState({lat: 13.4113, lng: 121.1808})
-  const ZOOM_LEVEL = 13;
-  // const mapRef = useRef();
-  const [position, setPosition] = useState({lat: 13.4113, lng: 121.1808})
+import useGeoLocation from "../hooks/useGeoLocation";
 
-  const locationMarker=()=> {
-    // const [position, setPosition] = useState(null)
 
-  
-    return position === null ? null : (
-      <Marker position={position}>
-        <Popup>You are here</Popup>
-      </Marker>
-    )
-  }
 
-  
-return(
-  <>
-  <button onClick={locationMarker}>locate</button>
-  <MapContainer
-    center={center}
-    zoom={ZOOM_LEVEL}
-    // ref={mapRef}
-  
-  >
-    <TileLayer url="https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=B7Qswco9rqEFCQ4fnonV" />
-    {/* <Marker position={position}>
-      <Popup>
-        You are here <br /> 
-      </Popup>
-    </Marker> */}
 
-  </MapContainer>
+const MarkersMap = () => {
+  const [center, setCenter] = useState({ lat: 13.4113, lng: 121.1808 });
+  const ZOOM_LEVEL = 14;
+  const mapRef = createRef();
 
-  </>
-)
-}
+  const location = useGeoLocation();
 
-export default PtopMap
+  const showMyLocation = () => {
+    if (location.loaded && !location.error) {
+      console.log(mapRef)
+      console.log(location)
+      // mapRef.current.leafletElement.flyTo(
+      //   [location.coordinates.lat, location.coordinates.lng],
+      //   ZOOM_LEVEL,
+      //   { animate: true }
+        
+      // );
+      
+      return false;
+    } else {
+      alert(location);
+    }
+  };
+
+  return (
+    <>
+     
+
+     
+
+      <div className="row">
+        <div className="col text-center">
+          <h2>React-leaflet - Get user location</h2>
+          <p>Get user location and highlight it with a marker</p>
+          <div className="col">
+            <MapContainer center={center} zoom={ZOOM_LEVEL}  >
+              <TileLayer
+                url="https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=B7Qswco9rqEFCQ4fnonV" 
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              />
+
+              {location.loaded && !location.error && (
+                <Marker
+                 
+                  position={[
+                    location.coordinates.lat,
+                    location.coordinates.lng,
+                  ]}
+
+                ></Marker>
+              )}
+            </MapContainer>
+          </div>
+        </div>
+      </div>
+
+      <div className="row my-4">
+        <div className="col d-flex justify-content-center">
+          <button className="btn btn-primary" onClick={(e) => {e.preventDefault()  
+            showMyLocation();
+            }}>
+            Locate Me
+          </button>
+        </div>
+      </div>
+      <div className="row my-4">
+        <div className="col d-flex justify-content-center">
+          <button className="btn btn-primary" >
+            Locate Me
+          </button>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default MarkersMap;
