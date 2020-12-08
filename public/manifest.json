@@ -1,8 +1,8 @@
 {
   "name": "ORMOS",
-  "short_name": "ORMOS Everything You Nedd",
-  "theme_color": "rgba(241, 235, 149, 0.924)",
-  "background_color": "#282c34",
+  "short_name": "ORMOS Everything you need",
+  "theme_color": "dbdb41",
+  "background_color": "#000000 ",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
