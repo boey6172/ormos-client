@@ -1,5 +1,6 @@
 import React, { useState, forwardRef,createRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { TextField } from '@material-ui/core';
 import L, { map } from "leaflet";
 
 import '../leaflet/leaflet.css';
@@ -20,6 +21,7 @@ const MarkersMap = () => {
     if (location.loaded && !location.error) {
       console.log(mapRef)
       console.log(location)
+      alert()
       // mapRef.current.leafletElement.flyTo(
       //   [location.coordinates.lat, location.coordinates.lng],
       //   ZOOM_LEVEL,
@@ -41,8 +43,6 @@ const MarkersMap = () => {
 
       <div className="row">
         <div className="col text-center">
-          <h2>React-leaflet - Get user location</h2>
-          <p>Get user location and highlight it with a marker</p>
           <div className="col">
             <MapContainer center={center} zoom={ZOOM_LEVEL}  >
               <TileLayer
@@ -72,15 +72,20 @@ const MarkersMap = () => {
             }}>
             Locate Me
           </button>
+          <TextField
+            type = "text"
+            id = "store"
+            name = "store"
+            // label = "Store"
+            placeholder = "Search Store Name "
+            // value={values.store}
+            // onChange = {handelInputChange} 
+            margin="normal"
+            // fullWidth
+          />
         </div>
       </div>
-      <div className="row my-4">
-        <div className="col d-flex justify-content-center">
-          <button className="btn btn-primary" >
-            Locate Me
-          </button>
-        </div>
-      </div>
+      
     </>
   );
 };

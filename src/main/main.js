@@ -1,6 +1,7 @@
-import React, { useEffect,useState }from 'react';
+import React, { useState }from 'react';
 import VerifyForm from '../verify/verifyForm';
 import MenuButton from './menuButton'
+import History from './history'
 
 
 
@@ -35,7 +36,7 @@ const Main = (props) =>{
        
       <div> Welcome , {props.user.displayName}</div>
        <div><MenuButton /></div>
-       <div>.</div>
+       <div><History /></div>
 
       </div>
     </>

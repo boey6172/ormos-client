@@ -1,10 +1,8 @@
 import React from 'react';
-import { Button,ButtonGroup,IconButton,Divider,Paper,InputBase,MuiThemeProvider } from '@material-ui/core';
+import { Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
 import Map from './map';
 
 const useStyles = makeStyles((theme) => ({
