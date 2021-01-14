@@ -1,52 +1,24 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
-
-const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 const StoreCard = (props) =>{
-  const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+
 
   const {name, email, id } = props;
   return(
   <>
-    <Card className={classes.root}>
-    <CardContent>
-      {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
-        store
-      </Typography> */}
-      <img alt='robots' src={`https://robohash.org/${id}?200x200`}  />
-      <div className='tc'>
-        <h2>{name}</h2>
-        <p>{email}</p>
-      </div>
-    </CardContent>
-    {/* <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions> */}
-    </Card>
-</>
+    <Grid key={id} item>
+      <Paper className="paper" variant="elevation">
+        <div>
+          <img className="content-image" src={`https://robohash.org/${id}?200x200`} alt="" />
+        </div>
+        <div>
+          {name}
+        </div>
+      </Paper>
+    </Grid>
+  </> 
   );
 }
 

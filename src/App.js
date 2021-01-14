@@ -9,14 +9,28 @@ import VerifyForm from './verify/verifyForm';
 import PtoP from './services/ptop'
 import Food from './services/food'
 import NavBar from './main/navBar';
+import P2p from './p2p/p2p';
+import MenuButton from './main/menuButton'
 
 var uiConfig = {
   signInFlow: 'popup',
   signInOptions: [
+    {
+      provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      // scopes: [
+      //   'https://www.googleapis.com/auth/contacts.readonly'
+      // ],
+      customParameters: {
+        // Forces account selection even when one account
+        // is available.
+        prompt: 'select_account'
+      }
+    },
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+
   ],
+  tosUrl: '<your-tos-url>',
+  privacyPolicyUrl: '<your-privacy-policy-url>',
   callbacks:{
     signInSuccessWithAuthResult : (authResult) =>{
       // const userInfo = authResult.additionalUserInfo; 
@@ -48,17 +62,18 @@ if(user){
     return (
       <>
       <Router>
-      <NavBar />
-        <Route exact path="/" render = {props => (
-          <React.Fragment>
-          <Main {...({user})}/>
-          </React.Fragment>
-        )} />
-          
-      <Route path="/verify" component={VerifyForm}/>
-      <Route path="/p2p" component={PtoP}/>
-      <Route path="/food" component={Food}/>
-
+        <NavBar />
+        <MenuButton {...({user})}/>
+          <Route exact path="/" render = {props => (
+            <React.Fragment>
+            <Main {...({user})}/>
+            </React.Fragment>
+          )} />
+            
+        <Route path="/verify" component={VerifyForm}/>
+        <Route path="/p2p" component={PtoP}/>
+        <Route path="/food" component={Food}/>
+        <Route path="/p2pV2" component={P2p}/>
       </Router>
       </>
     )

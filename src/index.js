@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import './config/firebase';
+import "firebase/auth";
 
 ReactDOM.render(
   <React.StrictMode>

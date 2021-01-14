@@ -1,4 +1,5 @@
 import React from 'react';
+import Grid from "@material-ui/core/Grid";
 import Card from './storeCard';
 
 const CardList = ({store}) => {
@@ -13,8 +14,17 @@ const cardComponent = store.map((user ,i) => {
   })
   return( 
     <div>
-      {cardComponent} 
+    <div className="content-container">
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Grid container justify="center" spacing={1}>
+            {cardComponent} 
+            </Grid>
+          </Grid>
+        </Grid>
     </div>
+    </div>
+    
   );
 }
 

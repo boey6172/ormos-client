@@ -27,7 +27,7 @@ const Stores = () =>{
     })
    
   }
-  const {robotss,store }= initialFieldValues;
+  // const {robotss,store }= initialFieldValues;
    const filteredStore = values.robotss.filter(robots => {
     return robots.name.toLowerCase().includes(values.store);
   })
@@ -52,12 +52,7 @@ const Stores = () =>{
           />
         </div>
       </div>
-      <div className="row my-4 App">
-        <div className="col d-flex justify-content-center">
          <StoreList store = {filteredStore}/>
-        </div>
-      </div>
-
     </div>
   )
 }
