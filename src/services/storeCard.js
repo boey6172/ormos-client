@@ -5,13 +5,13 @@ import Grid from "@material-ui/core/Grid";
 const StoreCard = (props) =>{
 
 
-  const {name, email, id } = props;
+  const {name, email, logo,key } = props;
   return(
   <>
-    <Grid key={id} item>
-      <Paper className="paper" variant="elevation">
+    <Grid key={name} item>
+      <Paper className="paper" variant="elevation" onClick={()=>{ alert(`${name}`);}}>
         <div>
-          <img className="content-image" src={`https://robohash.org/${id}?200x200`} alt="" />
+          <img className="content-image" src={logo} alt="" />
         </div>
         <div>
           {name}
