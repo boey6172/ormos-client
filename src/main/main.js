@@ -13,7 +13,7 @@ const Main = (props) =>{
     <>
       <div className="App">
        
-      <div> Welcome , {props.user.displayName}</div>
+      <div className="header-welcome"> Welcome , {props.user.displayName}</div>
        {/* <div><MenuButton /></div> */}
        <div><History /></div>
 

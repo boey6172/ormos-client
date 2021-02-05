@@ -53,14 +53,14 @@ const AppBarMenu = (props) =>{
   };
 
   const list = (anchor) => (
-    <div
+     <div
       className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
-      role="presentation"
+       [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+       })}
+       role="presentation"
       onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
+       onKeyDown={toggleDrawer(anchor, false)}
+     >
 
       <Divider />
         <List>
@@ -74,21 +74,21 @@ const AppBarMenu = (props) =>{
         </ListItem>
         </List>
       <Divider />
-    </div>
+  //   </div>
   );
 
   return(
   <>
-  <AppBar position="static">
+  {/* <AppBar position="static">
     <Toolbar>
       <IconButton edge="start"  color="inherit" aria-label="menu" aria-haspopup="true" onClick={toggleDrawer('left', true)}>
         <MenuIcon />
-      </IconButton>
-      <Typography variant="h6" >
-        ORMOS
-      </Typography>
-    </Toolbar>
-  </AppBar>
+      </IconButton> */}
+      <div className="header-nav">
+       <h1 className="logo-name" >ORMOS</h1> 
+      </div>
+    {/* </Toolbar>
+  </AppBar> */}
 
 
       {/* ///THIS IS WHERE THEY APPEAR */}

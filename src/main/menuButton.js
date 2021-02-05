@@ -58,11 +58,11 @@ return (
             value="nearby"
             icon={<ShoppingCartTwoToneIcon />}
           />
-          <BottomNavigationAction
+          {/* <BottomNavigationAction
             label={props.user.displayName.split(' ').slice(0, -1).join(' ')}
             value="Account"
             icon={<Avatar alt={props.user.displayName} src={props.user.photoURL} />}
-          />
+          /> */}
         </BottomNavigation>
   </div>
 </div>
