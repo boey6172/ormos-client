@@ -14,6 +14,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {Link} from 'react-router-dom';
 import firebase from 'firebase';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles({
   list: {
@@ -86,6 +87,7 @@ const AppBarMenu = (props) =>{
       </IconButton> */}
       <div className="header-nav">
        <h1 className="logo-name" >ORMOS</h1> 
+       <div><Avatar className="account-avatar" alt={props.user.displayName} src={props.user.photoURL} /></div>
       </div>
     {/* </Toolbar>
   </AppBar> */}

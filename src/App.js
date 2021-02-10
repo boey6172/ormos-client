@@ -62,7 +62,7 @@ if(user){
     return (
       <>
       <Router>
-        <NavBar />
+        <NavBar {...({user})}/>
         <MenuButton {...({user})}/>
           <Route exact path="/" render = {props => (
             <React.Fragment>

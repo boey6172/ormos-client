@@ -6,6 +6,10 @@ import instance from '../instance/instance'
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { Button} from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,6 +20,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Stores = () =>{
+
+  const history = useHistory();
+  // const classes = useStyles();
+  const redirect=(e,props)=>
+  {
+    e.preventDefault();
+    history.push(props);
+  }
 
   const classes = useStyles();
   const initialFieldValues = {
@@ -60,21 +72,30 @@ const Stores = () =>{
     })
     return( 
       <div>
-        <div className="p2p">Search Stores</div>
-        <div className="row my-2">
-          <div className="col d-flex justify-content-center">
+        
+        <div className="p2p">
+          <div className="back-btn-stores">
+            <Button onClick={(e)=>{redirect(e,"/")}}>
+            <ArrowBackIosIcon  /> 
+            </Button>
+        </div>
+         
+          <h5 id="find-store">Search</h5>
+        
+
             <TextField
+            className="searchfield"
               type = "text"
               id = "store"
               name = "store"
               // label = "Store"
-              placeholder = "Search Store Name "
+              placeholder = "Find store "
               value={values.store}
               onChange = {handelInputChange} 
               margin="normal"
               // fullWidth
             />
-          </div>
+    
         </div>
           <StoreList store = {filteredStore}/>
       </div>

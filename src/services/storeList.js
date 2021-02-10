@@ -7,10 +7,13 @@ const CardList = ({store}) => {
 const cardComponent = store.map((store ,i) => {
   
     return( 
-    <Card 
+    <Card
       key={i} 
       name={store.storeName} 
       logo={store.logo} 
+      openning={store.storeHourOpen}
+      clossing={store.storeHourClose}
+
       // email={store[i].email}
     />
     );  

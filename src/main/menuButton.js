@@ -12,6 +12,8 @@ import StorefrontTwoToneIcon from "@material-ui/icons/StorefrontTwoTone";
 import ShoppingCartTwoToneIcon from "@material-ui/icons/ShoppingCartTwoTone";
 import Avatar from '@material-ui/core/Avatar';
 import MotorcycleIcon from '@material-ui/icons/Motorcycle';
+import AppBar from '@material-ui/core/AppBar';
+import Tab from '@material-ui/core/Tab';
 
 
 
@@ -28,12 +30,10 @@ const handleChange = (event, newValue) => {
   setValue(newValue);
 };
 return (
-<div>
-  <div className="footer-container">
+<div  className="footer-nav">
         <BottomNavigation
           value={value}
           onChange={handleChange}
-          className="footer-nav"
         >
           <BottomNavigationAction
             label="Home"
@@ -58,13 +58,8 @@ return (
             value="nearby"
             icon={<ShoppingCartTwoToneIcon />}
           />
-          {/* <BottomNavigationAction
-            label={props.user.displayName.split(' ').slice(0, -1).join(' ')}
-            value="Account"
-            icon={<Avatar alt={props.user.displayName} src={props.user.photoURL} />}
-          /> */}
+         
         </BottomNavigation>
-  </div>
 </div>
 
 )
