@@ -12,9 +12,10 @@ import StorefrontTwoToneIcon from "@material-ui/icons/StorefrontTwoTone";
 import ShoppingCartTwoToneIcon from "@material-ui/icons/ShoppingCartTwoTone";
 import Avatar from '@material-ui/core/Avatar';
 import MotorcycleIcon from '@material-ui/icons/Motorcycle';
-import AppBar from '@material-ui/core/AppBar';
-import Tab from '@material-ui/core/Tab';
-
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
 
 
@@ -31,35 +32,45 @@ const handleChange = (event, newValue) => {
 };
 return (
 <div  className="footer-nav">
-        <BottomNavigation
+
+<AppBar position="static" >
+        <Tabs
           value={value}
           onChange={handleChange}
+          variant="scrollable"
+          scrollButtons="off"
+          // aria-label="scrollable prevent tabs example"
+          className="bottom-nav"
         >
-          <BottomNavigationAction
-            label="Home"
-            value="recents"
-            icon={<HomeTwoToneIcon />}
-            onClick={(e)=>{redirect(e,"/")}}
-          />
-          <BottomNavigationAction
-            label="P2P"
-            value="P2P"
+          <Tab 
+          icon={<HomeTwoToneIcon />} 
+          aria-label="phone"  
+          onClick={(e)=>{redirect(e,"/")}} />
+          <Tab
             icon={<MotorcycleIcon />}
+            aria-label="favorite"
             onClick={(e)=>{redirect(e,"/p2pV2")}}
           />
-          <BottomNavigationAction
-            label="Stores"
-            value="favorites"
-            icon={<StorefrontTwoToneIcon />}
-            onClick={(e)=>{redirect(e,"/food")}}
+          <Tab 
+          icon={<StorefrontTwoToneIcon />} 
+          aria-label="person"  
+          onClick={(e)=>{redirect(e,"/food")}}
           />
-          <BottomNavigationAction
-            label="Cart"
-            value="nearby"
-            icon={<ShoppingCartTwoToneIcon />}
+
+          <Tab icon={<ShoppingCartTwoToneIcon />} 
+          aria-label="help"
+
+          />
+          
+          <Tab icon={<PersonOutlineIcon />} 
+          aria-label="help"
+          
           />
          
-        </BottomNavigation>
+        </Tabs>
+      </AppBar>
+
+
 </div>
 
 )

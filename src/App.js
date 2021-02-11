@@ -10,6 +10,7 @@ import PtoP from './services/ptop'
 import Food from './services/food'
 import NavBar from './main/navBar';
 import P2p from './p2p/p2p';
+// import Products from './products';
 import MenuButton from './main/menuButton'
 
 var uiConfig = {

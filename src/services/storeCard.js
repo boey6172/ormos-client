@@ -15,7 +15,7 @@ const StoreCard = (props) =>{
     <Grid key={name} item>
       <Paper className="paper" variant="elevation" onClick={()=>{ alert(`${name}`);}}>
         <div>
-          <img className="content-image" src={logo} alt="" />
+          <img className="store-image" src={logo} alt="" />
         </div>
         <div className="store-name">
         <div>
@@ -29,8 +29,6 @@ const StoreCard = (props) =>{
         <Avatar alt="Remy Sharp" src={logo} />
         </div>
        <h6 id="store-status"> Open</h6>
-        
-
       </Paper>
     </Grid>
   </> 
