@@ -4,7 +4,9 @@ import Grid from "@material-ui/core/Grid";
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
-import StorefrontIcon from '@material-ui/icons/Storefront';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import IconButton from '@material-ui/core/IconButton';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 
 const StoreCard = (props) =>{
@@ -12,27 +14,23 @@ const StoreCard = (props) =>{
 
   const {name, email, logo,key,openning,clossing } = props;
   return(
-  <>
+  <div className="product-list">
     {/* <Grid key={name} item> */}
-      <Paper className="paper" variant="elevation" onClick={()=>{}}>
+      <Paper className="product-paper" elevation={5} onClick={()=>{}}>
         <div>
-          <img className="store-image" src={logo} alt="" />
+          <img className="product-image" src={logo} alt="" />
         </div>
-        <div className="store-name">
-        <div>
-          <h4 id="store-name">{name}</h4>
+        <div className="product-name">
+          <div>
+            <h4 id="product-name">{name}</h4>
+          </div>
+          <div >
+        
+          </div>
         </div>
-        <div>
-         <h6 id="store-hrs"><StorefrontIcon fontSize="small"/>Store Hours - {openning}/{clossing}</h6>
-        </div>
-        </div>
-        <div className="store-avatar">
-        <Avatar alt="Remy Sharp" src={logo} />
-        </div>
-       <h6 id="store-status"> Open</h6>
       </Paper>
     {/* </Grid> */}
-  </> 
+   </div>
   );
 }
 

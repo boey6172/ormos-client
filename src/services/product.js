@@ -54,10 +54,15 @@ const Product = (props) => {
     const filtered=getFiltered()
     
     return (  
-      <>
-      <Banner store={store}/>
-      <ProductList product={filtered}/>
-      </>
+     <div className="product-container">
+       <div  className="product-banner"> 
+         <Banner store={store}/>
+       </div>
+       <div> 
+         <ProductList product={filtered}/>  
+       </div>
+     
+      </div>
     );  
   }
   else{

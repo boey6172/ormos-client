@@ -26,9 +26,13 @@ const ProductList = (props) => {
   })
 
   return ( 
-    <>
-      {cardComponent}
-    </>
+<>
+        <Grid item xs={12}>
+          <Grid container justify="center">
+            {cardComponent} 
+            </Grid>
+          </Grid>
+</>
    );
 }
  

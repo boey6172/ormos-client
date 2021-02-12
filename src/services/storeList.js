@@ -29,9 +29,8 @@ const cardComponent = store.map((store ,i) => {
   return( 
 
     <div className="content-container">
-     
         <Grid item xs={12}>
-          <Grid container justify="center" spacing={1}>
+          <Grid container justify="center">
             {cardComponent} 
             </Grid>
           </Grid>

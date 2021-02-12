@@ -71,7 +71,7 @@ const Stores = () =>{
       return store.storeName.toLowerCase().includes(values.store);
     })
     return( 
-     <div>
+     <div className="store-list">
         <div className="p2p">
           <div className="back-btn-stores">
             <Button onClick={(e)=>{redirect(e,"/")}}>
