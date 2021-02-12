@@ -10,7 +10,8 @@ import PtoP from './services/ptop'
 import Food from './services/food'
 import NavBar from './main/navBar';
 import P2p from './p2p/p2p';
-import MenuButton from './main/menuButton'
+import MenuButton from './main/menuButton';
+import Product from './services/product';
 
 var uiConfig = {
   signInFlow: 'popup',
@@ -70,10 +71,12 @@ if(user){
             </React.Fragment>
           )} />
             
-        <Route path="/verify" component={VerifyForm}/>
+        <Route path="/verify" component={VerifyForm} />
         <Route path="/p2p" component={PtoP}/>
         <Route path="/food" component={Food}/>
         <Route path="/p2pV2" component={P2p}/>
+        <Route path="/product" render={(props)=><Product {...props}/>}/>
+
       </Router>
       </>
     )
