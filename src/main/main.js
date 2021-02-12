@@ -15,7 +15,10 @@ const Main = (props) =>{
        
       <div className="header-welcome"> Welcome , {props.user.displayName}</div>
        {/* <div><MenuButton /></div> */}
-       <div><History /></div>
+       
+       <div id="margin-top"><History  /></div>
+      <div id="margin-top"><History  /></div>
+       
 
       </div>
     </>

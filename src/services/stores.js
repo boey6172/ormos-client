@@ -71,18 +71,14 @@ const Stores = () =>{
       return store.storeName.toLowerCase().includes(values.store);
     })
     return( 
-      <div>
-        
+     <div>
         <div className="p2p">
           <div className="back-btn-stores">
             <Button onClick={(e)=>{redirect(e,"/")}}>
             <ArrowBackIosIcon  /> 
             </Button>
         </div>
-         
-          <h5 id="find-store">Search</h5>
-        
-
+        <h5 id="find-store">Search</h5>
             <TextField
             className="searchfield"
               type = "text"
@@ -97,9 +93,10 @@ const Stores = () =>{
             />
     
         </div>
+      <div>
           <StoreList store = {filteredStore}/>
       </div>
-    
+    </div>
     )
   }
   else{

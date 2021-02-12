@@ -87,7 +87,7 @@ const AppBarMenu = (props) =>{
       </IconButton> */}
       <div className="header-nav">
        <h1 className="logo-name" >ORMOS</h1> 
-       <div><Avatar className="account-avatar" alt={props.user.displayName} src={props.user.photoURL} /></div>
+       {/* <div><Avatar className="account-avatar" alt={props.user.displayName} src={props.user.photoURL} /></div> */}
       </div>
     {/* </Toolbar>
   </AppBar> */}

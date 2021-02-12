@@ -27,17 +27,17 @@ const cardComponent = store.map((store ,i) => {
     );  
   })
   return( 
-    <div>
+
     <div className="content-container">
-      <Grid container spacing={2}>
+     
         <Grid item xs={12}>
           <Grid container justify="center" spacing={1}>
             {cardComponent} 
             </Grid>
           </Grid>
-        </Grid>
+     
     </div>
-    </div>
+
     
   );
 }

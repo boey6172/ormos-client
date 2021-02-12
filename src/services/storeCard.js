@@ -13,29 +13,25 @@ const StoreCard = (props) =>{
   const {name, email, logo,key,openning,clossing } = props;
   return(
   <>
-
-      <Grid key={name} item>
-        <Paper className="paper" variant="elevation" onClick={(e)=>{ }}>
-          <div>
-            <img className="content-image" src={logo} alt="" />
-          </div>
-          <div className="store-name">
-          <div>
-            <h4 id="store-name">{name}</h4>
-          </div>
-          <div>
-          <h6 id="store-hrs"><StorefrontIcon fontSize="small"/>Store Hours - {openning}/{clossing}</h6>
-          </div>
-          </div>
-          <div className="store-avatar">
-          <Avatar alt="Remy Sharp" src={logo} />
-          </div>
-        <h6 id="store-status"> Open</h6>
-          
-
-        </Paper>
-      </Grid>
-   
+    <Grid key={name} item>
+      <Paper className="paper" variant="elevation" onClick={()=>{ alert(`${name}`);}}>
+        <div>
+          <img className="store-image" src={logo} alt="" />
+        </div>
+        <div className="store-name">
+        <div>
+          <h4 id="store-name">{name}</h4>
+        </div>
+        <div>
+         <h6 id="store-hrs"><StorefrontIcon fontSize="small"/>Store Hours - {openning}/{clossing}</h6>
+        </div>
+        </div>
+        <div className="store-avatar">
+        <Avatar alt="Remy Sharp" src={logo} />
+        </div>
+       <h6 id="store-status"> Open</h6>
+      </Paper>
+    </Grid>
   </> 
   );
 }

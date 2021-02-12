@@ -6,7 +6,7 @@ import Stores from './stores'
 const Food = () =>{
  
   return(
-    <div className="header-search">
+    <div>
         <Stores />
     </div>
   )
