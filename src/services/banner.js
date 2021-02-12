@@ -5,7 +5,7 @@ const Banner = (props) => {
   return ( 
     
     <div>
-     <img className="content-image" src={props.store[0].logo} alt="" />
+     <img className="store-image" src={props.store[0].logo} alt="" />
     </div>
    );
 }

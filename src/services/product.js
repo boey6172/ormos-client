@@ -51,12 +51,12 @@ const Product = (props) => {
 
   if(store[0] && products)
   {
-    const yehey=getFiltered()
-    console.log(yehey)
+    const filtered=getFiltered()
+    
     return (  
       <>
       <Banner store={store}/>
-      <ProductList />
+      <ProductList product={filtered}/>
       </>
     );  
   }
