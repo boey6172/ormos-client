@@ -9,14 +9,15 @@ import IconButton from '@material-ui/core/IconButton';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 
+
 const StoreCard = (props) =>{
 
 
-  const {name, email, logo,key,openning,clossing } = props;
+  const {name, email, logo,key,openning,clossing,getDetails } = props;
   return(
   <div className="product-list">
     {/* <Grid key={name} item> */}
-      <Paper className="product-paper" elevation={5} onClick={()=>{}}>
+      <Paper className="product-paper" elevation={5} onClick={()=>{getDetails()}}>
         <div>
           <img className="product-image" src={logo} alt="" />
         </div>

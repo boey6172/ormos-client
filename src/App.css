@@ -321,4 +321,53 @@ font-weight:bolder;
   /* transform: translate(-50%, -50%); */
 
 }
-
+/* PRODUCT DETAILS MODAL */
+.details-container{
+  position:absolute;
+  background-color: white;
+  box-shadow: 5;
+  padding: 1;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  /* text-align: -webkit-center; */
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.modal-none{
+  outline: none !important;
+  
+}
+.details-image {
+  /* height: 3%; */
+  width: 95%;
+  margin:0;
+  overflow: hidden;
+  /* position: fi; */
+  
+}
+.details-swipeable{
+width: fit-content;
+height:  fit-content;
+background-color: rgba(70, 70, 70, 0.219);
+text-align: center;
+}
+.details-name{
+  background-color: rgba(248, 136, 136, 0.103);
+  margin: 0;
+  width: 95%;
+}
+#details-name {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* margin-left: 5px; */
+  /* text-align: center; */
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-family:cursive;
+  font-size: 20px;
+  font-weight:bolder;
+  padding-left: 5%;
+}
