@@ -15,6 +15,7 @@ const ProductList = (props) => {
           key={i} 
           name={product.productName} 
           logo={product.pic} 
+          specs={product.specification}
           getDetails={props.getDetails}
           // openning={store.storeHourOpen}
           // clossing={store.storeHourClose}

@@ -6,56 +6,33 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Banner from './banner';
 import ProductList from './productList';
-import ProductDetails from './productDetails';
-import Modal from '@material-ui/core/Modal';
-import SwipeableViews from 'react-swipeable-views';
+import Button from '@material-ui/core/Button';
 
-import { autoPlay } from 'react-swipeable-views-utils';
+import Dialog from '@material-ui/core/Dialog';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import CloseIcon from '@material-ui/icons/Close';
+import Slide from '@material-ui/core/Slide';
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Input from '@material-ui/core/Input';
+
+
+
+
+
+// import { autoPlay } from 'react-swipeable-views-utils';
+
+// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 // const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 
-const tutorialSteps = [
-  {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bird',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bali, Indonesia',
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
-  },
-  {
-    label: 'NeONBRAND Digital Marketing, Las Vegas, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Goč, Serbia',
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-];
 
-
-
-
-
-
-
-
-
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
 const useStyles = makeStyles((theme) => ({
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
@@ -76,20 +53,43 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     width: '100%',
   },
+  appBar: {
+    position: 'relative',
+  },
+  title: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
+  },
 }));
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 
 const Product = (props) => {
   const classes = useStyles();
   const theme = useTheme();
+  const initialvalues={
+      logo:'',
+      specs:[ ],
+      name:'',
+    }
+  
+  const [value, setValue] = useState(null);
   var [products,setProducts ] =  useState(null)
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  // var [product,setProduct ] =  useState(null)
+  var [body,setBody ] =  useState(initialvalues)
+  var [qty,setQty] = useState(0);
+
+
 
 
 // --------------------------------------------------
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = tutorialSteps.length;
+  // const maxSteps = tutorialSteps.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -105,13 +105,14 @@ const Product = (props) => {
 
 
 // ---------------------------------------------------
-
+const handleChange = (event) => {
+  setValue(event.target.value);
+};
 
 
 
   
   const store = useState(props.location.state.store);
-  // console.log(store[0]);
   useEffect(()=> {
     db.child('products')
       .on('value',snapshot=>{
@@ -120,7 +121,6 @@ const Product = (props) => {
   },[])
 
   const getProduct=()=>{
-    // console.log(store[0])
     instance.get("products.json").then((response)=>{
       const getData=[];
       for (let key in response.data){
@@ -130,71 +130,35 @@ const Product = (props) => {
         {products:getData}
       )
     })
-
-    // console.log(filteredStore)
   }
-  const getDetails =()=>{
+
+  const getDetails =(props)=>{
+    setBody(props);
     setOpen(true);
   }
+
   const handleClose = () => {
     setOpen(false);
   };
-  const body = (
-    <div className="details-container">
-      <div className="details-swipeable">
-      <AutoPlaySwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {tutorialSteps.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <img className="details-image" src={step.imgPath} alt={step.label} />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews>
+  const addQty = () => {
+    var holder =qty + 1
 
-      {/* <img className="details-image" src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/36747190_2030496796974100_3372976111200763904_n.jpg?_nc_cat=103&ccb=3&_nc_sid=09cbfe&_nc_eui2=AeFPrp-MsU2v_IqYfrnvq5SV8IXiPb2GEjPwheI9vYYSMzgjJdnmhVVMPc-tQIQz1VRtijzBJN2u-INPjBVplgFh&_nc_ohc=prCQlI1108wAX8i8b7N&_nc_ht=scontent.fmnl4-1.fna&oh=b4e67cf0ede7a321e512bcc586981d88&oe=604D02C7" alt="" /> */}
-      </div>
-      <div className="details-name">
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
+    console.log(holder)
 
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      <h4 id="details-name">Bonn Bayag</h4>
-      
-      </div>
-      
-    </div>
-  );
+    setQty( 
+holder
+      );
+  };
+  const subQty = () => {
+    var holder =qty - 1
+    console.log(holder)
+    setQty(
+holder
+   );
+  };
+
   const getFiltered=()=>{
     const filteredStore = products.products.filter(products => {
-      // console.log(products.store.toLowerCase().includes(store[0].storeName.toLowerCase()))
       return products.store.toLowerCase().includes(store[0].storeName.toLowerCase());
     })
     return filteredStore
@@ -214,17 +178,57 @@ const Product = (props) => {
          product={filtered}
          getDetails={getDetails}
          /> 
-        <Modal
-          className="modal-none"
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          >
-          {body}
-        </Modal> 
+        <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+          <AppBar className={classes.appBar}>
+          <Toolbar>
+            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+              <CloseIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              Product Detials
+            </Typography>
+            <Button autoFocus color="inherit" onClick={handleClose}>
+              save
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <div className="details-container">
+          <div className="details-swipeable">
+            {/* use on future updates */}
+            {/* <AutoPlaySwipeableViews
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            enableMouseEvents
+            >
+            {tutorialSteps.map((step, index) => (
+              <div key={step.label}>
+                {Math.abs(activeStep - index) <= 2 ? (
+                  <img className="details-image" src={step.imgPath} alt={step.label} />
+                ) : null}
+              </div>
+            ))}
+            </AutoPlaySwipeableViews> */}
+            <img className="details-image" src={body.logo} alt={body.logo} />
+          </div>
+          <div className="details-name">
+            {body.name}
+          </div> 
+          <div className="specs">
+          <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+            { body.specs.map((spec ,i) => (
+              <div>
+                <FormControlLabel value={spec.price} control={<Radio />} label={spec.size + ' '+ spec.price} />
+              </div>  
+            ))}
+          </RadioGroup> 
+          <Input disabled value={qty}></Input>
+          <Button color='secondary' onClick={subQty}>-</Button>
+          <Button color='secondary' onClick={addQty}>+</Button>
+          </div>
+        </div>
+      </Dialog>
        </div>
-     
       </div>
     );  
   }
