@@ -10,6 +10,8 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { Button} from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
+import SearchIcon from '@material-ui/icons/Search';
+import { InputAdornment } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -73,23 +75,22 @@ const Stores = () =>{
     return( 
      <div className="store-list">
         <div className="p2p">
-          <div className="back-btn-stores">
-            <Button onClick={(e)=>{redirect(e,"/")}}>
-            <ArrowBackIosIcon  /> 
-            </Button>
-        </div>
-        <h5 id="find-store">Search</h5>
             <TextField
             className="searchfield"
               type = "text"
               id = "store"
               name = "store"
-              // label = "Store"
               placeholder = "Find store "
+              variant="standard"
               value={values.store}
               onChange = {handelInputChange} 
-              margin="normal"
-              // fullWidth
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon style={{color:'gray'}} />
+                  </InputAdornment>
+                ),
+              }}
             />
     
         </div>

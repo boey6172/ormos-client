@@ -15,7 +15,7 @@ const StoreCard = (props) =>{
   return(
   <>
     {/* <Grid key={name} item> */}
-      <Paper className="paper" onClick={()=>{}}>
+      <Paper className="paper" elevation={3} onClick={()=>{}}>
         <div>
           <img className="store-image" src={logo} alt="" />
         </div>
@@ -25,16 +25,17 @@ const StoreCard = (props) =>{
                  alignItems: 'center',
                  flexWrap: 'wrap',}}>
           <div><h4 id="store-name">{name}</h4></div>
-          <div><i style={{fontSize:'9px'}}>(foods variation)</i></div>
+          <div><i style={{fontSize:'9px'}}> (foods variation)</i></div>
         </div>
         <div>
          <h6 id="store-hrs"><LocationOnIcon fontSize="small" color="primary" />distance</h6>
          <h6 id="store-hrs"><StorefrontIcon fontSize="small"/>Store Hours - {openning}/{clossing}</h6>
         </div>
-        </div>
         <div className="store-avatar">
-        <Avatar alt="Remy Sharp" src={logo} style={{ height: '50px', width: '50px', }}/>
+        <Avatar alt="Remy Sharp" src={logo} style={{ height: '60px', width: '60px', border:'1px solid', borderColor:'#4141419d'}}/>
         </div>
+        </div>
+     
        {/* <h6 id="store-status"> Open</h6> */}
       </Paper>
     {/* </Grid> */}

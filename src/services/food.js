@@ -6,7 +6,7 @@ import Stores from './stores'
 const Food = () =>{
  
   return(
-    <div>
+    <div style={{paddingTop:'60px',backgroundColor:''}}>
         <Stores />
     </div>
   )

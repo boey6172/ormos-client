@@ -29,40 +29,44 @@ const redirect=(e,props)=>
 }
 const handleChange = (event, newValue) => {
   setValue(newValue);
+  
 };
 return (
 <div  className="footer-nav">
 
-<AppBar position="static" >
+<AppBar position="static" style={{backgroundColor:'#efdb5e',height:'auto'}}>
+  
         <Tabs
           value={value}
           onChange={handleChange}
-          variant="scrollable"
+          variant="fullWidth"
           scrollButtons="off"
-          // aria-label="scrollable prevent tabs example"
+          // inkBarStyle={{background: 'blue'}}
           className="bottom-nav"
+
         >
           <Tab 
-          icon={<HomeTwoToneIcon />} 
+          icon={<HomeTwoToneIcon  style={{ fontSize: 35 }}/>} 
           aria-label="phone"  
+       
           onClick={(e)=>{redirect(e,"/")}} />
           <Tab
-            icon={<MotorcycleIcon />}
+            icon={<MotorcycleIcon style={{ fontSize: 35 }} />}
             aria-label="favorite"
             onClick={(e)=>{redirect(e,"/p2pV2")}}
           />
           <Tab 
-          icon={<StorefrontTwoToneIcon />} 
+          icon={<StorefrontTwoToneIcon style={{ fontSize: 35 }} />} 
           aria-label="person"  
           onClick={(e)=>{redirect(e,"/food")}}
           />
 
-          <Tab icon={<ShoppingCartTwoToneIcon />} 
+          <Tab icon={<ShoppingCartTwoToneIcon style={{ fontSize: 35 }} />} 
           aria-label="help"
 
           />
           
-          <Tab icon={<PersonOutlineIcon />} 
+          <Tab icon={<PersonOutlineIcon style={{ fontSize: 35 }} />} 
           aria-label="help"
           
           />

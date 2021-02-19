@@ -8,6 +8,7 @@ import Banner from './banner';
 import ProductList from './productList';
 import Button from '@material-ui/core/Button';
 
+
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,7 +22,8 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Input from '@material-ui/core/Input';
 
-
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 
 
@@ -179,20 +181,18 @@ holder
          getDetails={getDetails}
          /> 
         <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-          <AppBar className={classes.appBar}>
+          <AppBar  className={classes.appBar} style={{borderRadius:'10px',height:'40px',backgroundColor:'#efdb5e'}}>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+           
+            <Typography variant="h6" style={{marginTop:'-15px'}} className={classes.title}>
+            {body.name}
+            </Typography>
+            <IconButton edge="start" color="inherit" style={{marginTop:'-15px'}} onClick={handleClose} aria-label="close">
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Product Detials
-            </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              save
-            </Button>
           </Toolbar>
         </AppBar>
-        <div className="details-container">
+        <div className="details-container" >
           <div className="details-swipeable">
             {/* use on future updates */}
             {/* <AutoPlaySwipeableViews
@@ -215,17 +215,41 @@ holder
             {body.name}
           </div> 
           <div className="specs">
-          <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+           <div>
+             <div className="details-variation">
+             Variation
+             </div> 
+           </div>
+          {/* <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
             { body.specs.map((spec ,i) => (
               <div>
                 <FormControlLabel value={spec.price} control={<Radio />} label={spec.size + ' '+ spec.price} />
               </div>  
             ))}
-          </RadioGroup> 
+          </RadioGroup>  */}
+
+      <ButtonGroup size="small" value={value} aria-label="small outlined button group" onChange={handleChange} className="details-variation-button">
+      { body.specs.map((spec ,i) => ( 
+        <Button>{spec.size}</Button>
+       ))}
+      </ButtonGroup>
+
           <Input disabled value={qty}></Input>
           <Button color='secondary' onClick={subQty}>-</Button>
           <Button color='secondary' onClick={addQty}>+</Button>
-          </div>
+          
+         
+          <Button
+        variant="contained"
+        style={{ margin: theme.spacing(1),}}
+        color="secondary"
+        className="addtocart"
+        endIcon={<AddShoppingCartIcon>addtocart</AddShoppingCartIcon>}
+      >
+        Add to Cart
+      </Button>
+      
+        </div>
         </div>
       </Dialog>
        </div>
