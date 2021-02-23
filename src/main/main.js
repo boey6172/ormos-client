@@ -17,7 +17,7 @@ const Main = (props) =>{
        {/* <div><MenuButton /></div> */}
        
        <div id="margin-top"><History  /></div>
-      <div id="margin-top"><History  /></div>
+     
        
 
       </div>
