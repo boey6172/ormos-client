@@ -70,7 +70,7 @@ const Stores = () =>{
   if(stores){
     
     const filteredStore = stores.stores.filter(store => {
-      return store.storeName.toLowerCase().includes(values.store);
+      return store.storeName.toLowerCase().includes(values.store.toLocaleLowerCase());
     })
     return( 
      <div className="store-list">
