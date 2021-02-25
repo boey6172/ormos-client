@@ -1,7 +1,7 @@
 import React, { useState }from 'react';
 import VerifyForm from '../verify/verifyForm';
-import MenuButton from './menuButton'
-import History from './history'
+import Home from "../home/index";
+
 
 
 
@@ -16,7 +16,7 @@ const Main = (props) =>{
       <div className="header-welcome"> Welcome , {props.user.displayName}</div>
        {/* <div><MenuButton /></div> */}
        
-       <div id="margin-top"><History  /></div>
+       <div id="margin-top"><Home {...props}/></div>
      
        
 

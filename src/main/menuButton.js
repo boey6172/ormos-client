@@ -1,16 +1,8 @@
 import react, {useState}from 'react';
-import { Button,ButtonGroup} from '@material-ui/core';
-import {Link, Redirect} from 'react-router-dom';
-import FastfoodIcon from '@material-ui/icons/Fastfood';
-import EventIcon from '@material-ui/icons/Event';
 import { useHistory } from 'react-router-dom';
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import PersonOutlineTwoToneIcon from "@material-ui/icons/PersonOutlineTwoTone";
 import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
 import StorefrontTwoToneIcon from "@material-ui/icons/StorefrontTwoTone";
 import ShoppingCartTwoToneIcon from "@material-ui/icons/ShoppingCartTwoTone";
-import Avatar from '@material-ui/core/Avatar';
 import MotorcycleIcon from '@material-ui/icons/Motorcycle';
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
@@ -65,9 +57,10 @@ return (
           aria-label="help"
 
           />
-          
+
           <Tab icon={<PersonOutlineIcon style={{ fontSize: 35 }} />} 
-          aria-label="help"
+          aria-label="profile"
+          onClick={(e)=>{redirect(e,"/profile")}}
           
           />
          
