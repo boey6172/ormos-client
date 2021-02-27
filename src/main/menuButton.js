@@ -1,14 +1,15 @@
 import react, {useState}from 'react';
 import { useHistory } from 'react-router-dom';
-import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import StorefrontTwoToneIcon from "@material-ui/icons/StorefrontTwoTone";
-import ShoppingCartTwoToneIcon from "@material-ui/icons/ShoppingCartTwoTone";
-import MotorcycleIcon from '@material-ui/icons/Motorcycle';
+import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
+import MotorcycleRoundedIcon from '@material-ui/icons/Motorcycle';
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-
+import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
+import SearchIcon from '@material-ui/icons/Search';
+import Avatar from '@material-ui/core/Avatar';
 
 
 const MenuButton = (props) => {
@@ -26,7 +27,7 @@ const handleChange = (event, newValue) => {
 return (
 <div  className="footer-nav">
 
-<AppBar position="static" style={{backgroundColor:'#efdb5e',height:'auto'}}>
+<AppBar position="static" style={{backgroundColor:'white',height:'auto'}}>
   
         <Tabs
           value={value}
@@ -38,27 +39,28 @@ return (
 
         >
           <Tab 
-          icon={<HomeTwoToneIcon  style={{ fontSize: 35 }}/>} 
+          icon={<HomeRoundedIcon  style={{ fontSize: 30,color:'#050505' }}/>} 
           aria-label="phone"  
        
           onClick={(e)=>{redirect(e,"/")}} />
           <Tab
-            icon={<MotorcycleIcon style={{ fontSize: 35 }} />}
+            icon={<MotorcycleRoundedIcon style={{ fontSize: 30,color:'#050505' }} />}
             aria-label="favorite"
             onClick={(e)=>{redirect(e,"/p2pV2")}}
           />
           <Tab 
-          icon={<StorefrontTwoToneIcon style={{ fontSize: 35 }} />} 
+          icon={<SearchIcon style={{ fontSize: 36, }} />} 
+          style={{backgroundColor:'orange',width:"20px",borderRadius:'10px',boxShadow:'0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)'}}
           aria-label="person"  
           onClick={(e)=>{redirect(e,"/food")}}
           />
 
-          <Tab icon={<ShoppingCartTwoToneIcon style={{ fontSize: 35 }} />} 
+          <Tab icon={<ShoppingCartRoundedIcon style={{ fontSize: 30,color:'#050505' }} />} 
           aria-label="help"
 
           />
 
-          <Tab icon={<PersonOutlineIcon style={{ fontSize: 35 }} />} 
+          <Tab icon={<Avatar className="account-avatar" alt={props.user.displayName} src={props.user.photoURL} />} 
           aria-label="profile"
           onClick={(e)=>{redirect(e,"/profile")}}
           

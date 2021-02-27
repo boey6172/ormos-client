@@ -15,6 +15,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {Link} from 'react-router-dom';
 import firebase from 'firebase';
 import Avatar from '@material-ui/core/Avatar';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 const useStyles = makeStyles({
   list: {
@@ -86,7 +87,10 @@ const AppBarMenu = (props) =>{
         <MenuIcon />
       </IconButton> */}
       <div className="header-nav">
-       <h1 className="logo-name" >ORMOS</h1> 
+        <>
+
+       <h1 className="logo-name" >ORMOS</h1> <><ExitToAppIcon id="signout" onClick={signOut}/></>
+       </>
        {/* <div><Avatar className="account-avatar" alt={props.user.displayName} src={props.user.photoURL} /></div> */}
       </div>
     {/* </Toolbar>
