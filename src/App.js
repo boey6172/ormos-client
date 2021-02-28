@@ -13,6 +13,7 @@ import P2p from './p2p/p2p';
 import MenuButton from './main/menuButton';
 import Product from './services/product';
 import Profile from './profile/profile';
+import 'fontsource-roboto';
 
 
 var uiConfig = {

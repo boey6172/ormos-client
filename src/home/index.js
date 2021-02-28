@@ -52,7 +52,7 @@ const images = [
     title: 'LOCAL STORES',
     width: '40%',
   },
- 
+
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 300,
     width: '100%',
     justifyContent: 'center',
-    marginTop:'7px',
+    marginTop: '7px',
   },
   image: {
     position: 'relative',
@@ -151,114 +151,114 @@ export default function ButtonBases() {
 
   return (
     <div>
-    {/* ----------------------------slider---------------------------------------- */}
-    <div className="slider-container">
-      <AutoPlaySwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {tutorialSteps.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <img
-                className="slider-image"
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews>
-      {/* <Paper square elevation={0}>
+      {/* ----------------------------slider---------------------------------------- */}
+      <div className="slider-container">
+        <AutoPlaySwipeableViews
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+          index={activeStep}
+          onChangeIndex={handleStepChange}
+          enableMouseEvents
+        >
+          {tutorialSteps.map((step, index) => (
+            <div key={step.label}>
+              {Math.abs(activeStep - index) <= 2 ? (
+                <img
+                  className="slider-image"
+                  src={step.imgPath}
+                  alt={step.label}
+                />
+              ) : null}
+            </div>
+          ))}
+        </AutoPlaySwipeableViews>
+        {/* <Paper square elevation={0}>
         <Typography id="slider-name">
           {tutorialSteps[activeStep].label}
         </Typography>
       </Paper> */}
-    </div>
-    {/* ----------------------------------------category----------------------------- */}
-    <div className="category-container">
-      <div id="cat-container">
-        <img
-          id="cat-icons"
-          src="https://www.flaticon.com/svg/vstatic/svg/2922/2922037.svg?token=exp=1614220634~hmac=28f1224cdf9b83c75a05141972cd584d"
-        /><div id="cat-name">Snacks</div>
-        
       </div>
-      <div id="cat-container" >
-        <img
-          id="cat-icons"
-          src="https://www.flaticon.com/svg/vstatic/svg/3082/3082015.svg?token=exp=1614221607~hmac=15c9b2b5336786cde0bb89cb8f2f212f"
-        />
-     <div id="cat-name">Drinks</div>
-      </div>
-      <div id="cat-container">
-        <img
-          id="cat-icons"
-          src="https://www.flaticon.com/svg/vstatic/svg/3480/3480559.svg?token=exp=1614221777~hmac=ca6415ad2d12bf4bb3de54740054878e"
-        />
-        <div id="cat-name">Pasta</div>
-      </div>
-      <div id="cat-container">
-        <img
-          id="cat-icons"
-          src="https://www.flaticon.com/svg/vstatic/svg/2674/2674065.svg?token=exp=1614221894~hmac=605625d9b6ceff02ec8c2025cb66a651"
-        />
-        <div id="cat-name">Pizza</div>
-      </div>
-      <div id="cat-container">
-        <img
-          id="cat-icons"
-          src="https://www.flaticon.com/svg/vstatic/svg/817/817418.svg?token=exp=1614221951~hmac=4d87e65e2f0d690773313b3398fe498a"
-        />
-        <div id="cat-name">Pastry</div>
-      </div>
-      <div id="cat-container">
-        <img
-          id="cat-icons"
-          src="https://www.flaticon.com/svg/vstatic/svg/965/965866.svg?token=exp=1614221979~hmac=60bfb793d0d1d737d2a571944f299651"
-        />
-        <div id="cat-name">Others</div>
-      </div>
-    </div>
-    {/* ---------------------------fandlocal--------------------------------------- */}
-    <div className={classes.root}>
-      {images.map((image) => (
-        <ButtonBase
-          focusRipple
-          key={image.title}
-          className={classes.image}
-          focusVisibleClassName={classes.focusVisible}
-          style={{
-            width: image.width
-          }}
-        >
-          <span
-            className={classes.imageSrc}
-            style={{
-              backgroundImage: `url(${image.url})`
-            }}
+      {/* ----------------------------------------category----------------------------- */}
+      <div className="category-container">
+        <div id="cat-container">
+          <img
+            id="cat-icons"
+            src="https://www.flaticon.com/svg/vstatic/svg/2922/2922037.svg?token=exp=1614220634~hmac=28f1224cdf9b83c75a05141972cd584d"
+          /><div id="cat-name">Snacks</div>
+
+        </div>
+        <div id="cat-container" >
+          <img
+            id="cat-icons"
+            src="https://www.flaticon.com/svg/vstatic/svg/3082/3082015.svg?token=exp=1614221607~hmac=15c9b2b5336786cde0bb89cb8f2f212f"
           />
-          <span className={classes.imageBackdrop} />
-          <span className={classes.imageButton}>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              className={classes.imageTitle}
-            >
-              {image.title}
-              <span className={classes.imageMarked} />
-            </Typography>
-          </span>
-        </ButtonBase>
-      ))}
-    </div>
-    <div style={{paddingTop:'60px',backgroundColor:''}}>
+          <div id="cat-name">Drinks</div>
+        </div>
+        <div id="cat-container">
+          <img
+            id="cat-icons"
+            src="https://www.flaticon.com/svg/vstatic/svg/3480/3480559.svg?token=exp=1614221777~hmac=ca6415ad2d12bf4bb3de54740054878e"
+          />
+          <div id="cat-name">Pasta</div>
+        </div>
+        <div id="cat-container">
+          <img
+            id="cat-icons"
+            src="https://www.flaticon.com/svg/vstatic/svg/2674/2674065.svg?token=exp=1614221894~hmac=605625d9b6ceff02ec8c2025cb66a651"
+          />
+          <div id="cat-name">Pizza</div>
+        </div>
+        <div id="cat-container">
+          <img
+            id="cat-icons"
+            src="https://www.flaticon.com/svg/vstatic/svg/817/817418.svg?token=exp=1614221951~hmac=4d87e65e2f0d690773313b3398fe498a"
+          />
+          <div id="cat-name">Pastry</div>
+        </div>
+        <div id="cat-container">
+          <img
+            id="cat-icons"
+            src="https://www.flaticon.com/svg/vstatic/svg/965/965866.svg?token=exp=1614221979~hmac=60bfb793d0d1d737d2a571944f299651"
+          />
+          <div id="cat-name">Others</div>
+        </div>
+      </div>
+      {/* ---------------------------fandlocal--------------------------------------- */}
+      <div className={classes.root}>
+        {images.map((image) => (
+          <ButtonBase
+            focusRipple
+            key={image.title}
+            className={classes.image}
+            focusVisibleClassName={classes.focusVisible}
+            style={{
+              width: image.width
+            }}
+          >
+            <span
+              className={classes.imageSrc}
+              style={{
+                backgroundImage: `url(${image.url})`
+              }}
+            />
+            <span className={classes.imageBackdrop} />
+            <span className={classes.imageButton}>
+              <Typography
+                component="span"
+                variant="subtitle1"
+                color="inherit"
+                className={classes.imageTitle}
+              >
+                {image.title}
+                <span className={classes.imageMarked} />
+              </Typography>
+            </span>
+          </ButtonBase>
+        ))}
+      </div>
+      <div style={{ paddingTop: '60px', backgroundColor: '' }}>
         <Stores />
+      </div>
     </div>
-  </div>
 
 
 
@@ -289,6 +289,6 @@ export default function ButtonBases() {
 
 
 
-   
+
   );
 }

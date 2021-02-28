@@ -25,7 +25,7 @@ import Input from '@material-ui/core/Input';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
-
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 // import { autoPlay } from 'react-swipeable-views-utils';
 
@@ -181,7 +181,7 @@ holder
          getDetails={getDetails}
          /> 
         <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-          <AppBar  className={classes.appBar} style={{borderRadius:'10px',height:'40px',backgroundColor:'#efdb5e'}}>
+          <AppBar  className={classes.appBar} style={{borderRadius:'5px',height:'40px',backgroundColor:'#ffeb3b'}}>
           <Toolbar>
            
             <Typography variant="h6" style={{marginTop:'-15px'}} className={classes.title}>
@@ -216,6 +216,9 @@ holder
           </div> 
           <div className="specs">
            <div>
+             <h6><i>Food Descripction</i></h6>
+             <TextareaAutosize style={{width:'100%'}} readOnly rowsMin={3} aria-label="empty textarea" placeholder="Food Desc" />
+          
              <div className="details-variation">
              Variation
              </div> 
