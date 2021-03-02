@@ -8,6 +8,7 @@ import Main from './main/main';
 import VerifyForm from './verify/verifyForm';
 import PtoP from './services/ptop'
 import Food from './services/food'
+import Search from './main/search'
 import NavBar from './main/navBar';
 import P2p from './p2p/p2p';
 import MenuButton from './main/menuButton';
@@ -78,6 +79,7 @@ if(user){
         <Route path="/p2p" component={PtoP}/>
         <Route path="/food" component={Food}/>
         <Route path="/p2pV2" component={P2p}/>
+        <Route path="/search" component={Search}/>
         {/* <Route path="/profile" component={Profile}/> */}
         <Route path="/product" render={(props)=><Product {...props}/>}/>
         <Route path="/profile" render={(props)=><Profile {...user}/>}/>

@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
+import StorefrontRoundedIcon from '@material-ui/icons/StorefrontRounded';
+
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
@@ -62,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 300,
     width: '100%',
     justifyContent: 'center',
-    marginTop: '7px',
+    marginTop: '5px',
   },
   image: {
     position: 'relative',
@@ -255,7 +257,8 @@ export default function ButtonBases() {
           </ButtonBase>
         ))}
       </div>
-      <div style={{ paddingTop: '60px', backgroundColor: '' }}>
+      <div style={{}}>
+        <div style={{ display: 'flex', alignItems: 'center' }}> <StorefrontRoundedIcon style={{ marginLeft: '3%' }} fontSize="small" color="primary" /> <h6 id="home-text-container">Browse Stores </h6> </div>
         <Stores />
       </div>
     </div>

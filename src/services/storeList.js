@@ -34,7 +34,6 @@ const cardComponent = store.map((store ,i) => {
             {cardComponent} 
             </Grid>
           </Grid>
-     
     </div>
 
     

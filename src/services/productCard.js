@@ -19,7 +19,6 @@ const StoreCard = (props) => {
           <div id="product-est">
           <i >est: 15mins</i>
           </div>
-
         </div>
         <div >
 
